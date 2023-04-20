@@ -1,19 +1,27 @@
-require('dotenv').config();
 const express = require('express');
+const cors = require("cors");
+
+const { SERVER_PORT } = require('./config');
+const db = require('./lib/db');
 
 const auth = require('./routes/auth.route');
+const users = require('./routes/users.route');
 
 const app = express();
-const port = process.env.PORT;
-
+app.use(cors());
 app.use(express.json());
 
+/* Routing */
 auth(app);
+users(app);
 
 app.get('/', (req, res) => {
-  res.json({ path: 'healt', port })
+  res.json({ path: 'healt', port });
 });
 
-app.listen(port, () => {
-  console.log(`Servidor corriendo en el puerto ${port}`);
-});
+db().then(() => {
+  app.listen(SERVER_PORT);
+  console.log(`Servidor corriendo en el puerto ${SERVER_PORT}`);
+}).catch(err => {
+  console.log(`Error: ${err}`);
+})
