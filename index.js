@@ -6,6 +6,7 @@ const db = require('./lib/db');
 
 const auth = require('./routes/auth.route');
 const users = require('./routes/users.route');
+const comics = require('./routes/comics.route');
 
 const app = express();
 app.use(cors());
@@ -14,6 +15,7 @@ app.use(express.json());
 /* Routing */
 auth(app);
 users(app);
+comics(app);
 
 app.get('/', (req, res) => {
   res.json({ path: 'healt', port });

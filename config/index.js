@@ -7,6 +7,9 @@ const config = {
   DB_HOST: process.env.DB_HOST || '',
   DB_PORT: process.env.DB_PORT || 27017,
   DB_NAME: process.env.DB_NAME || '',
+  MARVEL_API: process.env.MARVEL_API || '',
+  MARVEL_PUBLIC_KEY: process.env.PUBLIC_KEY || '',
+  MARVEL_HASH: process.env.HASH || '',
 }
 
 module.exports = config;
