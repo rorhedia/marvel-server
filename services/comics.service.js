@@ -3,7 +3,7 @@ const { MARVEL_API, MARVEL_PUBLIC_KEY, MARVEL_HASH } = require('./../config');
 
 class Comics {
 
-  #queryParams = `apikey=${MARVEL_PUBLIC_KEY}&ts=1&hash=${MARVEL_HASH}`;
+  #queryParams = `apikey=${MARVEL_PUBLIC_KEY}&ts=1&hash=${MARVEL_HASH}&orderBy=title`;
 
   async getAll() {
     try {
