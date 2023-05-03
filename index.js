@@ -18,7 +18,7 @@ users(app);
 comics(app);
 
 app.get('/', (req, res) => {
-  res.json({ path: 'healt', port });
+  res.json({ path: 'healt', SERVER_PORT });
 });
 
 db().then(() => {

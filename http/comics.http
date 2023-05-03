@@ -1,2 +1,11 @@
 GET http://localhost:3000/api/v1/comics
 Content-Type: application/json
+
+###
+POST http://localhost:3000/api/v1/comics/search
+Content-Type: application/json
+
+{
+  "title": "hulk",
+  "offset": "2"
+}
