@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require("cors");
 
 const { SERVER_PORT } = require('./config');
-const db = require('./lib/db');
+const db = require('./helpers/db');
 
 const auth = require('./routes/auth.route');
 const users = require('./routes/users.route');

@@ -10,7 +10,8 @@ class Comics {
       const url = `${MARVEL_API}/comics?${this.#queryParams}&offset=${offset}`;
       return await axios.get(url);
     } catch (e) {
-      throw new Error(e);
+      if (e.response) throw e.response;
+      else throw e;
     }
   }
 
@@ -19,7 +20,8 @@ class Comics {
       const url = `${MARVEL_API}/comics?${this.#queryParams}&title=${title}&offset=${offset}`;
       return await axios.get(url);
     } catch (e) {
-      throw new Error(e);
+      if (e.response) throw e.response;
+      else throw e;
     }
   }
 

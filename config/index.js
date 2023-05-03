@@ -10,6 +10,7 @@ const config = {
   MARVEL_API: process.env.MARVEL_API || '',
   MARVEL_PUBLIC_KEY: process.env.PUBLIC_KEY || '',
   MARVEL_HASH: process.env.HASH || '',
+  LOG_EMITTER: 'addLog'
 }
 
 module.exports = config;

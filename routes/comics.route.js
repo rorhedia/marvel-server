@@ -1,5 +1,6 @@
 const express = require('express');
 const Comics = require('../services/comics.service');
+const sendResponse = require('../helpers/sendResponse');
 
 function comics(app) {
   const router = express.Router();
@@ -10,9 +11,9 @@ function comics(app) {
   router.get('/', async (req, res) => {
     try {
       const result = await ComicsAPI.getAll();
-      return res.json(result.data);
+      sendResponse(res, result.data);
     } catch (e) {
-      console.log(e);
+      sendResponse(res, e);
     }
   });
 
@@ -20,9 +21,9 @@ function comics(app) {
     try {
       const { title, offset } = req.body;
       const result = await ComicsAPI.getByTitle(title, offset);
-      return res.json(result.data);
+      sendResponse(res, result.data);
     } catch (e) {
-      console.log(e);
+      sendResponse(res, e);
     }
   });
 
