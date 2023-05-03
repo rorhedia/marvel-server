@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  server:
+    container_name: server-marvel
+    ports:
+      - "3000:3000"
+    build: .
+    restart: always
+    volumes:
+      - ./:/app
+    links:
+      - mongo
+
+  mongo:
+    container_name: mongo-marvel
+    image: mongo:latest
+    ports:
+      - "27018:27017"
+    logging:
+      driver: none
