@@ -17,6 +17,16 @@ function comics(app) {
     }
   });
 
+  router.get('/:id', async (req, res) => {
+    try {
+      const { id } = req.params;
+      const result = await ComicsAPI.getById(id);
+      sendResponse(res, result.data);
+    } catch (e) {
+      sendResponse(res, e);
+    }
+  });
+
   router.post('/search', async (req, res) => {
     try {
       const { title, offset } = req.body;

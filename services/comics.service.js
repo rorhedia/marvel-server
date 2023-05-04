@@ -15,6 +15,16 @@ class Comics {
     }
   }
 
+  async getById(id, offset) {
+    try {
+      const url = `${MARVEL_API}/comics/${id}?${this.#queryParams}&offset=${offset}`;
+      return await axios.get(url);
+    } catch (e) {
+      if (e.response) throw e.response;
+      else throw e;
+    }
+  }
+
   async getByTitle(title, offset) {
     try {
       const url = `${MARVEL_API}/comics?${this.#queryParams}&title=${title}&offset=${offset}`;
