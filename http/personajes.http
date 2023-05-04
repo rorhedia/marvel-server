@@ -1,0 +1,11 @@
+GET http://localhost:3000/api/v1/personajes
+Content-Type: application/json
+
+###
+POST http://localhost:3000/api/v1/personajes/search
+Content-Type: application/json
+
+{
+  "name": "hulk",
+  "offset": "2"
+}

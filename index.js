@@ -7,6 +7,7 @@ const db = require('./helpers/db');
 const auth = require('./routes/auth.route');
 const users = require('./routes/users.route');
 const comics = require('./routes/comics.route');
+const personaajes = require('./routes/personajes.route');
 
 const app = express();
 app.use(cors());
@@ -16,6 +17,7 @@ app.use(express.json());
 auth(app);
 users(app);
 comics(app);
+personaajes(app);
 
 app.get('/', (req, res) => {
   res.json({ path: 'healt', SERVER_PORT });
