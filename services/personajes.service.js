@@ -15,6 +15,16 @@ class Personajes {
     }
   }
 
+  async getById(id, offset) {
+    try {
+      const url = `${MARVEL_API}/characters/${id}?${this.#queryParams}&offset=${offset}`;
+      return await axios.get(url);
+    } catch (e) {
+      if (e.response) throw e.response;
+      else throw e;
+    }
+  }
+
   async getByName(name, offset) {
     try {
       const url = `${MARVEL_API}/characters?${this.#queryParams}&nameStartsWith=${name}&offset=${offset}`;

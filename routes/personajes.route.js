@@ -17,6 +17,16 @@ function personajes(app) {
     }
   });
 
+  router.get('/:id', async (req, res) => {
+    try {
+      const { id } = req.params;
+      const result = await personajesAPI.getById(id);
+      sendResponse(res, result.data);
+    } catch (e) {
+      sendResponse(res, e);
+    }
+  });
+
   router.post('/search', async (req, res) => {
     try {
       const { name, offset } = req.body;
